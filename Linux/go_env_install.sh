@@ -34,7 +34,7 @@ path_work_dir=$(dirname $(readlink -f "$0"))  # 当前的绝对路径
 
 # ---------- 脚本主体 - start ---------- #
 
-if [[ $work_path == "" ]]
+if [[ $work_path=="" ]]
   then
     work_path="$path_work_dir"
 fi
