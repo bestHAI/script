@@ -2,5 +2,5 @@
 
 ## Linux
 
-* Go环境安装：`curl -sSL https://github.com/bestHAI/script/raw/master/Linux/go_env_install.sh | bash`
+* Go环境安装：`curl -sSL https://raw.githubusercontent.com/bestHAI/script/master/Linux/go_env_install.sh | bash`
 
