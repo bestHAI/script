@@ -3,6 +3,7 @@
 # ---------- 脚本说明 - start ---------- #
 
 # 脚本作用：GO环境安装
+# 适用环境：Linux 64 Bit
 # 运行权限：root
 # 工作路径：命令行所在目录
 # 执行结果：
@@ -17,6 +18,7 @@
 # ---------- 可改参数 - start ---------- #
 
 version="14.1"  # 版本号，具体可以参考：https://golang.org/dl/ 或 https://studygolang.com/dl
+work_path=""    # 指定安装目录，空则安装到当前工作目录
 
 # ---------- 可改参数  -  end ---------- #
 
@@ -24,14 +26,24 @@ version="14.1"  # 版本号，具体可以参考：https://golang.org/dl/ 或 ht
 
 # ---------- 固定参数 - start ---------- #
 
-work_path=$(dirname $(readlink -f "$0"))  # 当前的绝对路径
+path_work_dir=$(dirname $(readlink -f "$0"))  # 当前的绝对路径
 
 # ---------- 固定参数  -  end ---------- #
 
 #########################################
 
 # ---------- 脚本主体 - start ---------- #
+
+if [[ work_path == "" ]]
+  then
+    work_path="$path_work_dir"
+fi
+
+echo -e "Go环境安装准备开始..." && \
+echo -e "安装版本：$version" && \
+echo -e "安装目录：$work_path" && \
 echo -e "下载" && \
+cd "$work_path" && \
 curl -O "https://dl.google.com/go/go1.$version.linux-amd64.tar.gz" && \
 
 echo -e "解压" && \
