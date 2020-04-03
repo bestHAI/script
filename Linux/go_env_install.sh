@@ -42,23 +42,23 @@ fi
 echo -e "Go环境安装准备开始..." && \
 echo -e "安装版本：$version" && \
 echo -e "安装目录：$work_path" && \
-echo -e "下载" && \
+echo -e "正在下载" && \
 cd "$work_path" && \
 curl -O "https://dl.google.com/go/go1.$version.linux-amd64.tar.gz" && \
 
-echo -e "解压" && \
+echo -e "正在解压" && \
 tar -zxf "go1.$version.linux-amd64.tar.gz" && \
 
-echo -e "配置" && \
+echo -e "配置环境" && \
 echo "export GOROOT=$work_path/go" >> /etc/profile && \
 echo "PATH=$PATH:$work_path/go/bin" >> /etc/profile && \
 echo "export GOPATH=$work_path/go_path" >> /etc/profile && \
 source /etc/profile && \
 
-echo -e "清除" && \
+echo -e "清理文件" && \
 mkdir "$work_path/go_path" && \
 rm -rf "go1.$version.linux-amd64.tar.gz" && \
 
-echo -e "完成"
+echo -e "安装完成"
 
 # ---------- 脚本主体  -  end ---------- #
